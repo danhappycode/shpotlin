@@ -1,6 +1,7 @@
 package com.shpock.kotlin
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -36,11 +37,9 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     private fun onClick() {
         item?.let {
-            Toast.makeText(
-                    itemView.context,
-                    "${it.description}",
-                    Toast.LENGTH_SHORT
-            ).show()
+            val intent = Intent(itemView.context, ItemActivity::class.java)
+            intent.putJsonExtra(ItemActivity.EXTRA_ITEM, it)
+            itemView.context.startActivity(intent)
         }
     }
 

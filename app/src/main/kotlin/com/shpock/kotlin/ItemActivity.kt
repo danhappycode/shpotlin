@@ -15,6 +15,12 @@ class ItemActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item)
 
+        val item = intent.getJsonExtra(EXTRA_ITEM, Item::class.java)
+
+        title = item.title
+        priceTextView.text = item.priceString
+        descriptionTextView.text = item.description
+
         loadSomeBeautifulImage()
     }
 
@@ -25,6 +31,10 @@ class ItemActivity : AppCompatActivity() {
         Glide.with(this)
                 .load("http://placekitten.com/g/$width/$height")
                 .into(imageView)
+    }
+
+    companion object {
+        val EXTRA_ITEM = "extra_item"
     }
 
 }
