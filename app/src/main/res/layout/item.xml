@@ -28,6 +28,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1"
                 android:textAppearance="?android:textAppearanceLarge"
                 android:textStyle="bold"
                 />
@@ -36,6 +37,7 @@
                 android:id="@+id/price"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_weight="0"
                 android:fontFamily="sans-serif-light"
                 android:textAppearance="?android:textAppearanceLarge"
                 />
