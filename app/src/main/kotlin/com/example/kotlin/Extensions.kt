@@ -1,4 +1,4 @@
-package com.shpock.kotlin
+package com.example.kotlin
 
 import android.content.Intent
 import com.google.gson.Gson

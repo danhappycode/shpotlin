@@ -1,4 +1,4 @@
-package com.shpock.kotlin
+package com.example.kotlin
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle

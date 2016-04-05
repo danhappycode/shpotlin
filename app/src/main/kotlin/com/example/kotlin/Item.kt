@@ -1,4 +1,4 @@
-package com.shpock.kotlin
+package com.example.kotlin
 
 
 /**
