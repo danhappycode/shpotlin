@@ -14,14 +14,26 @@ class MainActivity : AppCompatActivity(), ItemService.ResponseListener {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = ItemAdapter(this)
 
+        swipeRefreshLayout.setOnRefreshListener { loadItems() }
+
         loadItems()
     }
 
     private fun loadItems() {
+        showLoadingIndicator()
         ItemService(this, this).loadItems()
     }
 
+    private fun showLoadingIndicator() {
+        swipeRefreshLayout.post { swipeRefreshLayout.isRefreshing = true }
+    }
+
+    private fun hideLoadingIndicator() {
+        swipeRefreshLayout.isRefreshing = false
+    }
+
     override fun onResponse(items: Array<Item?>) {
+        hideLoadingIndicator()
         recyclerView.swapAdapter(ItemAdapter(this, items), true)
     }
 }
