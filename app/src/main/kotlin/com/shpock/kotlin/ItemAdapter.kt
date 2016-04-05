@@ -11,25 +11,25 @@ import kotlinx.android.synthetic.main.item.view.*
 /**
  * Created by Daniel Niedermühlbichler on 04/04/16.
  */
-class ItemAdapter(val context: Context) : RecyclerView.Adapter<ItemViewHolder>() {
+class ItemAdapter(val context: Context, val items: Array<Item> = arrayOf()) : RecyclerView.Adapter<ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder?, position: Int) {
-        holder?.bind()
+        holder?.bind(items[position])
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ItemViewHolder? {
         return ItemViewHolder(LayoutInflater.from(context).inflate(R.layout.item, parent, false))
     }
 
-    override fun getItemCount() = 12
+    override fun getItemCount() = items.size
 
 }
 
 class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind() {
-        itemView.title.text = "The cloud pulls with hunger, hail the pacific ocean."
-        itemView.price.text = "42"
+    fun bind(item: Item) {
+        itemView.title.text = item.title
+        itemView.price.text = "${item.price}"
 
         loadSomeBeautifulImage()
     }
