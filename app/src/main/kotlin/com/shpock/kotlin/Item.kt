@@ -6,8 +6,8 @@ package com.shpock.kotlin
  */
 
 data class Item(
-        val id: Int,
-        val title: String,
-        val description: String,
-        val price: Int
+        val id: Int?,
+        val title: String?,
+        val description: String?,
+        val price: Int?
 )

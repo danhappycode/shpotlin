@@ -26,10 +26,12 @@ class ItemService(val context: Context, val responseListener: ResponseListener) 
         responseListener.onResponse(items)
     }
 
-    private fun parseJsonFromStream(inputStream: InputStream?) = Gson().fromJson<Array<Item>>(JsonReader(InputStreamReader(inputStream)), Array<Item>::class.java)
+    private fun parseJsonFromStream(inputStream: InputStream?): Array<Item?> {
+        return Gson().fromJson<Array<Item?>>(JsonReader(InputStreamReader(inputStream)), Array<Item?>::class.java)
+    }
 
     interface ResponseListener {
-        fun onResponse(items: Array<Item>)
+        fun onResponse(items: Array<Item?>)
     }
 
 }

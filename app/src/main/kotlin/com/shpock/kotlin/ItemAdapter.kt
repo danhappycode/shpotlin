@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.item.view.*
 /**
  * Created by Daniel Niedermühlbichler on 04/04/16.
  */
-class ItemAdapter(val context: Context, val items: Array<Item> = arrayOf()) : RecyclerView.Adapter<ItemViewHolder>() {
+class ItemAdapter(val context: Context, val items: Array<Item?> = arrayOf()) : RecyclerView.Adapter<ItemViewHolder>() {
 
     override fun onBindViewHolder(holder: ItemViewHolder?, position: Int) {
         holder?.bind(items[position])
@@ -27,9 +27,9 @@ class ItemAdapter(val context: Context, val items: Array<Item> = arrayOf()) : Re
 
 class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(item: Item) {
-        itemView.title.text = item.title.toUpperCase()
-        itemView.price.text = "${item.price}"
+    fun bind(item: Item?) {
+        itemView.title.text = item?.title?.toUpperCase() ?: "NO TITLE AVAILABLE"
+        itemView.price.text = "${item?.price}"
 
         loadSomeBeautifulImage()
     }

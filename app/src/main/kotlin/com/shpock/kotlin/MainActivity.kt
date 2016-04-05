@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), ItemService.ResponseListener {
         ItemService(this, this).loadItems()
     }
 
-    override fun onResponse(items: Array<Item>) {
+    override fun onResponse(items: Array<Item?>) {
         recyclerView.swapAdapter(ItemAdapter(this, items), true)
     }
 }
