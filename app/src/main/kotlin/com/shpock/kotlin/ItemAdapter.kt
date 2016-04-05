@@ -28,7 +28,7 @@ class ItemAdapter(val context: Context, val items: Array<Item> = arrayOf()) : Re
 class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     fun bind(item: Item) {
-        itemView.title.text = item.title
+        itemView.title.text = item.title.toUpperCase()
         itemView.price.text = "${item.price}"
 
         loadSomeBeautifulImage()
