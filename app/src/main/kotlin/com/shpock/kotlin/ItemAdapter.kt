@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item.view.*
 
@@ -27,7 +28,24 @@ class ItemAdapter(val context: Context, val items: Array<Item?> = arrayOf()) : R
 
 class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+    var item: Item? = null
+
+    init {
+        itemView.setOnClickListener { onClick() }
+    }
+
+    private fun onClick() {
+        item?.let {
+            Toast.makeText(
+                    itemView.context,
+                    "${it.description}",
+                    Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
+
     fun bind(item: Item?) {
+        this.item = item
         itemView.title.text = item?.title?.toUpperCase() ?: "NO TITLE AVAILABLE"
         itemView.price.text = "${item?.price}"
 
