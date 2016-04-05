@@ -10,4 +10,7 @@ data class Item(
         val title: String?,
         val description: String?,
         val price: Int?
-)
+) {
+        val priceString: String
+        get() = "€$price"
+}

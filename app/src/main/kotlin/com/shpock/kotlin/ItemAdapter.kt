@@ -47,7 +47,7 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(item: Item?) {
         this.item = item
         itemView.title.text = item?.title?.toUpperCase() ?: "NO TITLE AVAILABLE"
-        itemView.price.text = "${item?.price}"
+        itemView.price.text = "${item?.priceString}"
 
         loadSomeBeautifulImage()
     }
